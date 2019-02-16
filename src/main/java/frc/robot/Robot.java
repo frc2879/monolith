@@ -32,12 +32,16 @@ public class Robot extends TimedRobot {
   private WPI_TalonSRX brwheel;
   private WPI_TalonSRX blwheel;
   private WPI_TalonSRX lift;
+  private Drivetrain dt;
+  public static OI oi;
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
   @Override
   public void robotInit() {
+    oi = new OI();
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
@@ -46,6 +50,7 @@ public class Robot extends TimedRobot {
     brwheel = new WPI_TalonSRX(PortLib.brw);
     blwheel = new WPI_TalonSRX(PortLib.blw);
     lift = new WPI_TalonSRX(PortLib.lift);
+    dt = new Drivetrain(frwheel,flwheel,brwheel,blwheel);
   }
 
   /**
@@ -99,6 +104,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    dt.stickdrive(oi.GetJoystick().getY(),oi.GetJoystick().getTwist());
   }
 
   /**
@@ -106,5 +112,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
+    dt.testwheel(blwheel,oi.GetJoystick().getY());
   }
 }

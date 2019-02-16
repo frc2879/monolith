@@ -11,9 +11,10 @@ package frc.robot;
  * Add your docs here.
  */
 public class PortLib {
-    public static final int frw = 0;
-    public static final int flw = 0;
-    public static final int brw = 0;
-    public static final int blw = 0;
+    public static final int frw = 1;
+    public static final int flw = 2;
+    public static final int brw = 4;
+    public static final int blw = 3;
     public static final int lift = 0;
+    public static final int js = 0;
 }
