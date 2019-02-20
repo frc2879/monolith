@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.PortLib;
 
@@ -34,6 +35,14 @@ public class Robot extends TimedRobot {
   private WPI_TalonSRX lift;
   private Drivetrain dt;
   public static OI oi;
+  public static Bootleg_cone p_subsystem = new Bootleg_cone();
+  //public static Drivetrain d_subsystem = new Drivetrain(blwheel, blwheel, blwheel, blwheel);
+
+
+  /**
+   * This function is run when the robot is first started up and should be
+   * used for any initialization code.
+   */
 
   /**
    * This function is run when the robot is first started up and should be
@@ -104,6 +113,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    Scheduler.getInstance().run();
     dt.stickdrive(oi.GetJoystick().getY(),oi.GetJoystick().getTwist());
   }
 

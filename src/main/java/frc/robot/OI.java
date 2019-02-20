@@ -102,22 +102,23 @@ public class OI {
 	
 	public OI() {
 		stick = new Joystick(PortLib.js);
-		/*pov = new JoystickPOVTrigger(stick);
+		// pov = new JoystickPOVTrigger(stick);
 		//sets the commands for the buttons 
-		new JoystickButton(stick, 6).whileHeld(new ConstantIntake(.5,false));
-		new JoystickButton(stick, 5).whileHeld(new ConstantIntake(.5,true));
-		new JoystickButton(stick, 4).whileHeld(new ConstantIntake(-.5,false));
-		new JoystickButton(stick, 3).whileHeld(new ConstantIntake(-.5,true));
-		new JoystickButton(stick, 1).whileHeld(new StickDriveWithPID());
+		// new JoystickButton(stick, 6).whileHeld(new ConstantIntake(.5,false));
+		// new JoystickButton(stick, 5).whileHeld(new ConstantIntake(.5,true));
+		// new JoystickButton(stick, 4).whileHeld(new ConstantIntake(-.5,false));
+		// new JoystickButton(stick, 3).whileHeld(new ConstantIntake(-.5,true));
+		// new JoystickButton(stick, 1).whileHeld(new StickDriveWithPID());
 		
 		// this is the speed of the lift. negative retracts, positive extends.
-		new JoystickButton(stick, 11).whileHeld(new lift(0.20));
-		new JoystickButton(stick, 12).whileHeld(new lift(-0.20));
+		// new JoystickButton(stick, 11).whileHeld(new lift(0.20));
+		// new JoystickButton(stick, 12).whileHeld(new lift(-0.20));
 		
 		// the arguments are the speed in the different directions. (sidways speed, forward speed, diagonal speed)
-        pov.whileActive(new Strafe(.75,.25,.5));
-        */
+        // pov.whileActive(new Strafe(.75,.25,.5));
+
 		
+		new JoystickButton(stick, 1).toggleWhenPressed(new NoidCommander(true));
 	}
 		
 }
