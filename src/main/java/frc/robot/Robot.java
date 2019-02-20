@@ -35,7 +35,8 @@ public class Robot extends TimedRobot {
   private WPI_TalonSRX lift;
   private Drivetrain dt;
   public static OI oi;
-  public static Bootleg_cone p_subsystem = new Bootleg_cone();
+  public static conePush p_subsystem = new conePush();
+  public static coneOperate o_subsystem = new coneOperate();
   //public static Drivetrain d_subsystem = new Drivetrain(blwheel, blwheel, blwheel, blwheel);
 
 

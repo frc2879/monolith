@@ -21,11 +21,10 @@ import edu.wpi.first.wpilibj.Compressor;
  * You need to change the class name to match the file name
  * okay uwu
  */
-public class Bootleg_cone extends Subsystem {
+public class conePush extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   Solenoid coneMovement = new Solenoid(0);
-  Solenoid coneOperation = new Solenoid(1);
 
   @Override
   public void initDefaultCommand() {
@@ -37,11 +36,6 @@ public class Bootleg_cone extends Subsystem {
 public void pushingNoid(boolean pressure)
   {
     coneMovement.set(pressure);
-  }
-
-  public void openingNoid(boolean pressure)
-  { 
-    coneOperation.set(pressure);
   }
 
   

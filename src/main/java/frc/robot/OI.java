@@ -119,6 +119,7 @@ public class OI {
 
 		
 		new JoystickButton(stick, 1).toggleWhenPressed(new NoidCommander(true));
+		new JoystickButton(stick, 2).toggleWhenPressed(new NoidCommander(true));
 	}
 		
 }
