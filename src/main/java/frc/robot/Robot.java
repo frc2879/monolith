@@ -14,6 +14,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.PortLib;
+import edu.wpi.cscore.VideoSource;
+import edu.wpi.first.wpilibj.CameraServer;
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
+
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
 
 
 /**
@@ -61,6 +69,13 @@ public class Robot extends TimedRobot {
     blwheel = new WPI_TalonSRX(PortLib.blw);
     lift = new WPI_TalonSRX(PortLib.lift);
     dt = new Drivetrain(frwheel,flwheel,brwheel,blwheel);
+
+    CameraServer camera = CameraServer.getInstance();
+    VideoSource front = camera.startAutomaticCapture("cam0", 0);
+    front.setResolution(16, 9);
+    front.setFPS(25);
+
+
   }
 
   /**
