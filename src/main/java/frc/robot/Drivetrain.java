@@ -8,12 +8,16 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 /**
  * Add your docs here.
  */
 public class Drivetrain extends Subsystem {
+private static final double deadZone = 0.4;
+
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   WPI_TalonSRX frw;
@@ -40,11 +44,22 @@ public void testdrive(double speed){
 }
 
 public void stickdrive(double speed, double angle){
-
-  frw.set((speed+angle)/-5);
-  flw.set((speed-angle)/5);
-  brw.set((speed+angle)/-5);
-  blw.set((speed-angle)/5);
+  
+  /*
+  if(angle > deadZone || angle < -deadZone) {
+    blw.setNeutralMode(NeutralMode.Coast);
+    brw.setNeutralMode(NeutralMode.Coast);
+    blw.set(0);
+    brw.set(0);
+    frw.set((speed+angle)/-3);
+    flw.set((speed-angle)/3);
+  } else {
+    */
+    frw.set((speed+angle)/-5);
+    flw.set((speed-angle)/5);
+    brw.set((speed+angle)/-5);
+    blw.set((speed-angle)/5);
+  // }
 
 }
 
